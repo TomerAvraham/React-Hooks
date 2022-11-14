@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, createContext } from "react";
+import Box from "./Box";
+
+export const ThemeContext = createContext(null);
 
 const App = () => {
-  return <div>App</div>;
+  const [darkMode, setDarkMode] = useState(true);
+
+  function handleToggleTheme() {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+    // setDarkMode(!darkMode); // bad practice - DONT DO IT!!!!
+  }
+
+  return (
+    <ThemeContext.Provider value={{ darkMode, handleToggleTheme }}>
+      <div>
+        <button onClick={handleToggleTheme}>Toggle theme</button>
+        <Box />
+      </div>
+    </ThemeContext.Provider>
+  );
 };
 
 export default App;
