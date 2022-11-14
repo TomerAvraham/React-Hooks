@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import Box from "./Box";
+import MultiInputs from "./MultiInputs";
 
 export const ThemeContext = createContext(null);
 
@@ -14,8 +15,9 @@ const App = () => {
   return (
     <ThemeContext.Provider value={{ darkMode, handleToggleTheme }}>
       <div>
-        <button onClick={handleToggleTheme}>Toggle theme</button>
-        <Box />
+        {/* <button onClick={handleToggleTheme}>Toggle theme</button> */}
+        {/* <Box /> */}
+        <MultiInputs />
       </div>
     </ThemeContext.Provider>
   );
