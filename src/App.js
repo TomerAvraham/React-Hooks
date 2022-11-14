@@ -1,25 +1,15 @@
-import React, { useState, createContext } from "react";
+import React from "react";
 import Box from "./Box";
-import MultiInputs from "./MultiInputs";
-
-export const ThemeContext = createContext(null);
+import { useThemeUpdateContext } from "./context/themeContext";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
-  function handleToggleTheme() {
-    setDarkMode((prevDarkMode) => !prevDarkMode);
-    // setDarkMode(!darkMode); // bad practice - DONT DO IT!!!!
-  }
+  const handleToggleTheme = useThemeUpdateContext();
 
   return (
-    <ThemeContext.Provider value={{ darkMode, handleToggleTheme }}>
-      <div>
-        {/* <button onClick={handleToggleTheme}>Toggle theme</button> */}
-        {/* <Box /> */}
-        <MultiInputs />
-      </div>
-    </ThemeContext.Provider>
+    <div>
+      <button onClick={handleToggleTheme}>Toggle theme</button>
+      <Box />
+    </div>
   );
 };
 

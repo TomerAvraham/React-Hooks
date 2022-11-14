@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "./App";
+import React from "react";
 import BoxButton from "./BoxButton";
+import { useThemeContext } from "./context/themeContext";
 
 const Box = () => {
-  const { darkMode } = useContext(ThemeContext);
-
+  const darkMode = useThemeContext();
   return (
     <div
       style={{

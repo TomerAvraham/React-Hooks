@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "./App";
+import React from "react";
+import { useThemeContext, useThemeUpdateContext } from "./context/themeContext";
 
 const BoxButton = () => {
-  const { darkMode, handleToggleTheme } = useContext(ThemeContext);
+  const darkMode = useThemeContext();
+  const handleToggleTheme = useThemeUpdateContext();
 
   return (
     <button onClick={handleToggleTheme}>
